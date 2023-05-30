@@ -1,6 +1,7 @@
 * {
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
+    color: var(--font-color);
 }
 
 *,
@@ -9,11 +10,28 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(323, 5%, 10%);
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(127, 58%, 53%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(127, 58%, 40%);
+}
+
 :root {
-    --background: white;
-    --color-font: black;
-    --color-accent-1: limegreen;
-    --color-accent-2: blue;
+    --background-color-1: hsl(323, 5%, 8%);
+    --font-color: hsl(127, 0%, 90%);
+    --font-color-faded: hsl(127, 0%, 65%);
+    --color-accent-1: hsl(127, 58%, 53%);
+    --color-accent-2: hsl(228, 72%, 76%);
 }
 
 body {
@@ -21,7 +39,11 @@ body {
    align-items: center;
    justify-content: center;
    flex-direction: column;
-   background-color: var(--background);
+   background-color: var(--background-color-1);
+}
+
+p {
+    color: var(--font-color-faded);
 }
 
 #main {
@@ -31,14 +53,14 @@ body {
 
 menu {
     width: 100%;
-    border-bottom: 1px solid var(--color-font);
-    padding: 40px 10px;
+    border-bottom: 1px solid var(--font-color);
+    padding: 25px 10px;
     position: relative;
 }
 
 nav {
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     right: 10px;
 }
 
@@ -52,7 +74,7 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: var(--color-font);
+    color: var(--font-color);
     position: relative;
 }
 
@@ -74,4 +96,73 @@ nav a:hover {
 
 nav a:hover::before {
     transform: scaleX(1);
+}
+
+section {
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+section h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+section a {
+    text-decoration: none;
+    color: var(--color-accent-2);
+}
+
+.baner-qt {
+    color: var(--color-accent-1);
+}
+
+.content-image {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 30px 0;
+}
+
+.content-image img {
+    width: 65%;
+}
+
+footer {
+    width: 100%;
+    min-height: 200px;
+    margin-top: 60px;
+    padding: 10px;
+    border-top: 1px solid var(--font-color);
+}
+
+#menu-animate {
+    position: absolute;
+    top: 175px;
+}
+
+#scrolled-menu {
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    top: -40px;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color-1);
+    z-index: 1;
+    border-bottom: 1px solid var(--font-color);
+    transition: top 0.5s, opacity 0.5s;
+}
+
+#scrolled-menu nav {
+    position: relative;
+}
+
+@media (max-width: 800px) {
+    .content-image img {
+        width: 100%;
+    }
 }

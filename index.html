@@ -4,22 +4,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./js/index.js"></script>
+    <script defer src="./js/menu.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Środowisko QT</title>
+    <title>Środowisko Qt Creator</title>
 </head>
 <body>
+    <div id="menu-animate"></div>
+    <div id="scrolled-menu">
+        <nav>
+            <ul>
+                <li><a href="index.html">Strona Główna</a></li>
+                <li><a href="#">Qt Widgets</a></li>
+                <li><a href="#">Qt Quick</a></li>
+            </ul>
+        </nav>
+    </div>
     <div id="main">
         <menu>
             <div class="baner">
-                <h1>Środowisko QT Creator</h1>
+                <h1>Środowisko <span class="baner-qt">Qt Creator</span></h1>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">QT Widgets</a></li>
-                    <li><a href="#">QT Quick</a></li>
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="#">Qt Widgets</a></li>
+                    <li><a href="#">Qt Quick</a></li>
                 </ul>
             </nav>
         </menu>
+        <article>
+            <section>
+                <h1>Czym jest Qt</h1>
+                <p>
+                    Qt – zestaw przenośnych bibliotek i narzędzi programistycznych dedykowanych dla języków C++, QML i Java.
+                </p>
+                <p>
+                    Ich podstawowym składnikiem są klasy służące do budowy graficznego interfejsu programów komputerowych, począwszy od wersji 4.0 Qt zawiera też narzędzia do tworzenia programów konsolowych i serwerów.
+                </p>
+            </section>
+            <section>
+                <h1>Instalacja programu Qt Creator</h1>
+                <p>
+                    Qt Creator można pobrać z <a target="_blank" href="https://www.qt.io/download-qt-installer?hsCtaTracking=99d9dd4f-5681-48d2-b096-470725510d34%7C074ddad0-fdef-4e53-8aa8-5e8a876d6ab4">oficjalnej strony Qt</a>.
+                </p>
+                <br>
+                <p>
+                    Po pobraniu instalatora, musisz się zalogować. Następnie trzeba zaznaczyć "I have read and agree to the terms and conditions of using Open Source Qt", jak pracujesz indywidualnie to zaznacz też drugą opcję
+                    <div class="content-image">
+                        <img src="./imgs/qt_i_1.png" alt="Obraz Istalacji Qt">
+                    </div>
+                </p>
+                <p>
+                    Przeczytać i zaznaczyć odpowiednie opcje, aż do zakładki "Installation folder", wybierz odpowiedni folder i ustaw "Custom installation"
+                    <div class="content-image">
+                        <img src="./imgs/qt_i_2.png" alt="Obraz instalacji Qt">
+                    </div>
+                </p>
+                <p>
+                    Następnie rozwinąć zakładkę "Qt", i zaznaczyć wersję 5.15.2
+                    <div class="content-image">
+                        <img src="./imgs/qt_i_3.png">
+                    </div>
+                </p>
+                <p>
+                    Potem przeklikaj "Next" i poczekaj na instalację Qt, może to zająć od 20 minut do godziny czasu
+                </p>
+            </section>
+        </article>
+
+        <footer>
+            <p>Autor: Cyprian Moczała</p>
+        </footer>
     </div>
 </body>
 </html>
