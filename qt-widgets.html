@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./js/index.js"></script>
+    <script defer src="./js/menu.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Środowisko Qt Creator</title>
+</head>
+<body>
+    <div id="menu-animate"></div>
+    <div id="scrolled-menu">
+        <div class="nav-baner">
+            <h1>Środowisko <span class="baner-qt">Qt Creator</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Strona Główna</a></li>
+                <li><a class="active" href="qt-widgets.html">Qt Widgets</a></li>
+                <li><a href="qt-quick.html">Qt Quick</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="main">
+        <menu>
+            <div class="baner">
+                <h1>Środowisko <span class="baner-qt">Qt Creator</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a class="active" href="qt-widgets.html">Qt Widgets</a></li>
+                    <li><a href="qt-quick.html">Qt Quick</a></li>
+                </ul>
+            </nav>
+        </menu>
+        <article>
+            <section>
+                <h1>Tworzenie aplikacji NWD</h1>
+                <p>Pierw trzeba utworzyć projekt, naciśnij "Create Project...", zaznaczamy "Qt Widgets Application" i dajemy "wybierz..."</p>
+                <p>Wybieramy folder i nazywamy projekt, Podczas tworzeniu projektu tworzy się folder o nazwie projektu, a w tym folderze będą przyrządy do tworzenia aplikacji Qt Widgets</p>
+                <p>Podczas tworzenia aplikacji Qt Widgets trzeba pamiętać by zaznaczyć "System budowania" na qmake.</p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_1.png">
+                </div>
+                <p>
+                    W zestawach narzędzi klikamy "Zaznacz wszystkie zestawy narzędzi".
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_2.png">
+                </div>
+                <p>
+                    Do końca przeklikujemy i klikamy zakończ.
+                </p>
+            </section>
+        </article>
+        <article>
+            <h1>Rozpoczęcie z tworzeniem aplikacji NWD</h1>
+            <section>
+                <h3>Tworzenie interfejsu aplikacji</h3>
+                <p>
+                    Pierw zastanówmy się jak ma wyglądać nasz interfejs graficzny, żeby stworzyć aplikację NWD potrzebujemy 2 wejść, jeden z napisem "Liczba A:" i drugi "Liczba B:".
+                    Potrzebujemy też jakiegoś elementu(widgetu) który będzie przechowywać wynik naszej funkcji. Musimy mieć też przycisk który po naciśnięciu zczyta wartości z wejść
+                    i obliczy na nich NWD, po czym wyświetli wynik w widget'cie.
+                </p>
+                <br>
+                <p>
+                    Rozwijamy folder formularze i otwieramy plik "mainwindow.ui".
+                </p>
+                <p>
+                    Powinienyś widzieć taki widok:
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_3.png">
+                </div>
+                <p>
+                    Wyszukaj label(z ang. etykieta) i przeciągnij widgeta na ekran, zwiększamy wielkość labela, zjeżdżamy na dół i znajdujemy właściwość Text i przypisujemy do niej nazwę "Liczba A:".
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_4.png">
+                </div>
+                <p>
+                    Trzeba też pobierać z kąś informacje, do tego potrzebujemy Line Edit, wyszukaj Line Edit i przeciągnij na okno, trzeba zmienić właściwość objectName przyda nam się to do
+                    wykorzystywania tego widgetu podczas pobierania danych do zmiennych, można to uznać jako nazwę(id) elementu.
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_5.png">
+                </div>
+                <p>
+                    Można teraz skopiować już istniejące obiekty w oknie albo je dodać ręcznie.
+                    <br>
+                    Jako powtórzenie skopiuj i zmień właściwości elementów.
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_6.png">
+                </div>
+                <p>
+                    Przedostatnią rzeczą jaką musimy zrobić to dać przycisk którym wysyłamy i obliczamy NWD.
+                    <br>
+                    Wyszukaj Push Button i przeciągnij Push Button na okno i zmieniamy tekst na taki aby pasował do tego co ten przycisk robi, w tym przypadku zmienimy właściwość text na "Oblicz NWD"
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_7.png">
+                </div>
+                <p>
+                    Ostatnim etapem to dodać label w którym pokażemy wynik, ustaw label i zmień właściwość objectName na "wynik", a właściwość text na "Wynik =",
+                    pamiętaj że trzeba wydłużyć objekt wynik tak aby nie ucięło wyniku podczas wyświetlania dużej liczby
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_8.png">
+                </div>
+            </section>
+            <section>
+                <h3>Działanie aplikacji</h3>
+                <p>
+                    Zrobiliśmy już wygląd aplikacji, to teraz kolej na to jak ta aplikacja ma działać.
+                </p>
+                <br>
+                <p>
+                    Przejdź na zakładkę edycja, rozwiń folder Źródła i otwórz plik mainwindow.cpp
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_9.png">
+                </div>
+                <p>
+                    Stwórzmy u góry programu funkcję NWD, ja zastosowałem wersję Euklidesa
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_10.png">
+                </div>
+                <p>
+                    Wracamy do mainwindow.ui (interfejsu) i klikamy prawym przyciskiem na przycisk w oknie, klikamy przejdź do slotu i wybieramy opcję clicked()
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_11.png">
+                </div>
+                <p>
+                    Powinno to nas przenieść do mainwindow.cpp i stworzyć funkcję, ta funkcja wywołuje się gdy naciśniemy na dokładnie ten przycisk, jak zrobimy to samo na inny
+                    przycisk to stworzy 2 funkcję która działa dla drugiego przycisku.
+                </p>
+                <p>
+                    Pobieramy dane(tzn. właściwość text) w sposób ui->*nazwa elementu*->text(), wykorzystajmy to w kodzie
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_12.png">
+                </div>
+                <p>
+                    Pobieramy liczbę, więc używamy metody toInt(), która konwertuje tekst na liczbę.
+                </p>
+                <p>
+                    Mamy już funkcję więc trzeba ją tylko wykorzystać. Aby wpisać coś do elementu używamy ui->*nazwa elementu*->setText(*argument typu QString*)
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_13.png">
+                </div>
+                <p>
+                    Funkcja NWD zwraca typ int, dlatego używamy QString::number(*liczba*), bo konwertuje typ number na typ QString
+                </p>
+            </section>
+            <section>
+                <h3>Aplikacja gotowa!</h3>
+                <p>
+                    Właśnie stworzyłeś prostą aplikację obliczającą NWD 2 liczb w Qt Widgets
+                    <br>
+                    Żeby przetestować aplikację trzeba nacisnąć ten przycisk w lewym-dolnym rogu
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_14.png">
+                    <img src="./imgs/qt_w_15.png">
+                </div>
+            </section>
+        </article>
+        <footer>
+            <p>Autor: Cyprian Moczała</p>
+        </footer>
+    </div>
+</body>
+</html>

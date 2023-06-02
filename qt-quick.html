@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./js/index.js"></script>
+    <script defer src="./js/menu.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Środowisko Qt Creator</title>
+</head>
+<body>
+    <div id="menu-animate"></div>
+    <div id="scrolled-menu">
+        <div class="nav-baner">
+            <h1>Środowisko <span class="baner-qt">Qt Creator</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Strona Główna</a></li>
+                <li><a href="qt-widgets.html">Qt Widgets</a></li>
+                <li><a class="active" href="qt-quick.html">Qt Quick</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="main">
+        <menu>
+            <div class="baner">
+                <h1>Środowisko <span class="baner-qt">Qt Creator</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="qt-widgets.html">Qt Widgets</a></li>
+                    <li><a class="active" href="qt-quick.html">Qt Quick</a></li>
+                </ul>
+            </nav>
+        </menu>
+        <article>
+            <section>
+                <h1>Tworzenie aplikacji NWD</h1>
+                <p>Pierw trzeba utworzyć projekt, naciśnij "Create Project...", zaznaczamy "Qt Quick Application (compact)" i dajemy "wybierz..."</p>
+                <p>Wybieramy folder i nazywamy projekt, Podczas tworzeniu projektu tworzy się folder o nazwie projektu, a w tym folderze będą przyrządy do tworzenia aplikacji Qt Quick</p>
+                <p>Podczas tworzenia aplikacji Qt Quick trzeba pamiętać by zaznaczyć "System budowania" na CMake.</p>
+                <p>W zestawach narzędzi klikamy "Zaznacz wszystkie zestawy narzędzi".</p>
+                <p>Do końca przeklikujemy i klikamy zakończ.</p>
+            </section>
+        </article>
+        <article>
+            <h1>Rozpoczęcie z tworzeniem aplikacji NWD</h1>
+            <section>
+                <h3>Tworzenie interfejsu aplikacji</h3>
+                <p>
+                    Pierw zastanówmy się jak ma wyglądać nasz interfejs graficzny, żeby stworzyć aplikację NWD potrzebujemy 2 wejść, jeden z napisem "Liczba A:" i drugi "Liczba B:".
+                    Potrzebujemy też jakiegoś elementu który będzie przechowywać wynik naszej funkcji. Musimy mieć też przycisk który po naciśnięciu zczyta wartości z wejść
+                    i obliczy na nich NWD, po czym wyświetli wynik w widget'cie.
+                    <br>
+                    Tworzenie interfejsu w Qt Quick jest nieco inne niż tworzenie interfejsu w Qt Widgets ponieważ nie ma już przeciągania elementów tylko pisanie w języku QML
+                </p>
+                <br>
+                <p>
+                    Po stworzeniu projektu powinienyś zobaczyć otwarty plik main.qml
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_q_1.png">
+                </div>
+                <p>
+                    Po pierwsze musimy zaimportować ważne biblioteki Qt:
+                    <ul>
+                        <li>QtQuick.Controls</li>
+                        <li>QtQuick.Layouts</li>
+                    </ul>
+                </p>
+                <p>
+                    Pamiętaj wybierz najnowszą wersję tych bibliotek
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_q_2.png">
+                </div>
+                <p>
+                    W moim przypadku to jest:
+                    <ul>
+                        <li>QtQuick.Controls 2.5</li>
+                        <li>QtQuick.Layouts 1.3</li>
+                    </ul>
+                </p>
+                <br>
+                <p>
+                    Stwórz element Label i przypisz do niego 3 właściwości: x, y, text
+                    <br>
+                    Właściwości x i y oznaczają położenie względem lewego-górnego rogu, czyli x: 10 będzie oznaczało 10px od lewej krawędzi okna, a y: 10 będzie oznaczało 10px od górnej krawędzi okna
+                    <br>
+                    Właściwość text działa podobnie jak właściwość text w Qt Widgets, przypisujesz wartość która ma się pokazać w elemencie
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_q_3.png">
+                </div>
+                <p>
+                    Stwórz element TextField i przypisz do niego 4 właściwości: id, x, y, height
+                    <br>
+                    Właściwośc id jak sama nazwa wskazuje id do elementu żeby do niego później w kodzie się odwołać
+                    <br>
+                    Właściwośc height zmienia wysokość elementu
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_q_4.png">
+                </div>
+                <p>
+                    Skopiuj i zmień właściwości elementów
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_q_5.png">
+                </div>
+                <p>
+                    Stwórz element Button i przypisz do niego 3 właściwości: x, y, text
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_q_6.png">
+                </div>
+                <p>
+                    Teraz trzeba jakoś wyświetlić informacje do tego trzeba stworzyć Label z tekstem "Wynik =" i o id "wynik"
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_q_7.png">
+                </div>
+                <p>
+                    Teraz czas na stworzenie funkcji NWD i funkcji która po naciśnięciu przycisku, obliczy NWD i pokaże wynik
+                    <br>
+                    Aby takie coś stworzyć potrzebujemy dać funkcję onClicked: {} która uruchomi się po kliknięciu na dany element
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_q_8.png">
+                </div>
+                <p>
+                    W środku takich funkcji nie używa się języka C++ tylko już JavaScript
+                    <br>
+                    Stwórzmy więc funkcję NWD
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_q_9.png">
+                </div>
+                <p>
+                    Teraz kiedy wszystko jest gotowe można przystąpić do pobierania danych z pól TextField
+                    <br>
+                    Pobieranie danych w Qt Quick jest dużo prostsze niż w Qt Widgets bo nie trzeba odwoływać się do elementu w oknie(ui->*nazwa elementu*) tylko do samego elementu *nazwa elementu*
+                    <br>
+                    Dane pobiera się w następujący sposób: *nazwa elementu*.text
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_q_10.png">
+                </div>
+                <p>
+                    Wykorzystujemy funkcji parseInt() by przekonwertować typ QString na typ int
+                </p>
+                <br>
+                <p>
+                    Teraz żeby wszystko działało poprawnie potrzebujemy użyć funkcji NWD i wyświetlić wynik w elemencie wynik
+                    <br>
+                    Wpisywanie do elementów działa podobnie jak do odczytywania wartości z elementów: *nazwa elementu*.text = *Jakiś tekst*
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_q_11.png">
+                </div>
+            </section>
+            <section>
+                <h3>Aplikacja gotowa!</h3>
+                <p>
+                    Właśnie stworzyłeś prostą aplikację obliczającą NWD 2 liczb w Qt Quick
+                    <br>
+                    Żeby przetestować aplikację trzeba nacisnąć ten przycisk w lewym-dolnym rogu
+                </p>
+                <div class="content-image">
+                    <img src="./imgs/qt_w_14.png">
+                    <img src="./imgs/qt_q_12.png">
+                </div>
+            </section>
+        </article>
+        <footer>
+            <p>Autor: Cyprian Moczała</p>
+        </footer>
+    </div>
+</body>
+</html>
